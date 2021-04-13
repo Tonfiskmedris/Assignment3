@@ -4,7 +4,7 @@ public class Issues {
 
     private String newIssues;
 
-    private boolean solved = false;
+    private boolean solved;
 
     public String getNewIssues() {
         return newIssues;

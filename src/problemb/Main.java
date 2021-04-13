@@ -1,6 +1,8 @@
 package problemb;
 
 
+import javax.swing.*;
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -56,35 +58,47 @@ public class Main {
         System.out.print("What is your issue?: ");
         newIssues = input.nextLine();
         issue1.setNewIssues(newIssues);
-
         ticket.add(issue1);
-        System.out.println(issue1.isSolved());
+        issue1.setSolved(false);
+
     }
 
     private void solveIssue() {
-        Issues issue1 = new Issues();
+
+        ArrayList<Issues> unsolvedIssues = getUnsolvedIssues();
         System.out.println("--- Current issues ---");
-        viewUnsolvedIssues();
+        System.out.println(unsolvedIssues);
         System.out.println("Select which issue you would like to solve: ");
         int solve = Integer.parseInt(input.nextLine());
-        ticket.remove(solve);
-        issue1.setSolved(true);
+        unsolvedIssues.get(solve).setSolved(true);
 
 
     }
 
-    private void viewSolvedIssues() {
-        Issues issue1 = new Issues();
-        System.out.println("--- Solved issues ---");
 
+    private void viewSolvedIssues() {
+        ArrayList<Issues> solvedIssues = new ArrayList<>();
+        System.out.println("--- Solved issues ---");
+        for (Issues i : ticket) {
+            System.out.println(solvedIssues);
+        }
+
+    }
+
+    private ArrayList<Issues> getUnsolvedIssues() {
+        ArrayList<Issues> unsolvedIssues = new ArrayList<>();
+        for (Issues i : ticket) {
+            if (i.isSolved()) {
+                unsolvedIssues.add(i);
+
+            }
+        }
+        return unsolvedIssues;
     }
 
     private void viewUnsolvedIssues() {
-        for (Issues i : ticket) {
 
-            System.out.println("[" + ticket.indexOf(i) + "]" + i.getNewIssues());
 
-        }
     }
 }
 
