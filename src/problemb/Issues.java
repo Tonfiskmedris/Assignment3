@@ -2,16 +2,15 @@ package problemb;
 
 public class Issues {
 
-    private String newIssues;
-
+    private String Label;
     private boolean solved;
 
-    public String getNewIssues() {
-        return newIssues;
+    public String getLabel() {
+        return Label;
     }
 
-    public void setNewIssues(String newIssues) {
-        this.newIssues = newIssues;
+    public void setLabel(String Label) {
+        this.Label = Label;
     }
 
     public boolean isSolved() {
