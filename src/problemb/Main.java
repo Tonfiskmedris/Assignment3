@@ -19,7 +19,7 @@ public class Main {
             System.out.print("Select action: ");
             choice = Integer.parseInt(myApp.input.nextLine());
 
-            //switch funkar som vår menu selecter där användaren får välja vad hen vill göra. Avslutar programmet om val 5 tas.
+            //switch funkar som vår menu selecter där användaren får välja vad hen vill göra och på val 1-4 så kallar vi på en av våra metoder. Avslutar programmet om val 5 tas.
             switch (choice) {
                 case 1 -> myApp.createIssue();
                 case 2 -> myApp.solveIssue();
