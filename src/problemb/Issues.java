@@ -21,5 +21,4 @@ public class Issues {
     public void setSolved(boolean solved) {
         this.solved = solved;
     }
-
 }
