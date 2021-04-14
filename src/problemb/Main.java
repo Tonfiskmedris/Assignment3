@@ -1,11 +1,8 @@
 package problemb;
-
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Main {
-
 
     ArrayList<Issues> ticket = new ArrayList<>();
     Scanner input = new Scanner(System.in);

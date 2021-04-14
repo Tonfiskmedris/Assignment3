@@ -1,5 +1,6 @@
 package problemb;
 
+//skapar en klass som vi kan skapa våra Labels eller tickets "problem" ifrån.
 public class Issues {
 
     private String Label;
