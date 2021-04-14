@@ -15,11 +15,14 @@ public class Main {
         Main myApp = new Main();
         int choice;
 
+        //do-while loop sätts för att programmet vet hur den skall köras och när den ska exita.
         do {
+            //Kallar på vår menymetod som printar vår meny.
             myApp.displayMenu();
             System.out.print("Select action: ");
             choice = Integer.parseInt(myApp.input.nextLine());
 
+            //switch funkar som vår menu selecter där användaren får välja vad hen vill göra. Avslutar programmet om val 5 tas.
             switch (choice) {
                 case 1 -> myApp.createIssue();
                 case 2 -> myApp.solveIssue();
@@ -29,6 +32,7 @@ public class Main {
         } while (choice != 5);
     }
 
+    //Skapar vår menymetod
     private void displayMenu() {
         System.out.println();
         System.out.println("|  ------- Menu -------   |");
@@ -41,16 +45,18 @@ public class Main {
         System.out.println();
     }
 
+    //skapar en metod som låter användaren skriva in sitt problem för att sedan lagra problemet i vår arraylist "ticket".
     private void createIssue() {
         Issues issue1 = new Issues();
-        String newIssues;
+        String newLabel;
         System.out.print("What is your issue?: ");
-        newIssues = input.nextLine();
-        issue1.setLabel(newIssues);
+        newLabel = input.nextLine();
+        issue1.setLabel(newLabel);
         ticket.add(issue1);
-        issue1.setSolved(false);
+
     }
 
+    //skapar en metod som låter användaren se vilka tickets som ej är lösta och välja vilken hen vill lösa. Vald tickets boolean sätts sedan till true vilket gör att vi kan få programmet att se denna ticket som solved.
     private void solveIssue() {
         ArrayList<Issues> unsolvedIssues = getUnsolvedIssues();
         System.out.println("--- Current issues ---");
@@ -60,6 +66,7 @@ public class Main {
         unsolvedIssues.get(solve).setSolved(true);
     }
 
+    //metod som låter användaren se vilka tickets som är lösta med hjälp av en enhanced for-loop och vårat boolean värde.
     private void viewSolvedIssues() {
         System.out.println("--- Solved issues ---");
         for (Issues i : ticket) {
@@ -69,6 +76,7 @@ public class Main {
         }
     }
 
+    //metod som klassifierar ifall en ticket är löst eller ej. Kollar vårt boolean värde, om den inte är true så adderas ticketen till vår arraylist för icke lösta tickets.
     private ArrayList<Issues> getUnsolvedIssues() {
         ArrayList<Issues> unsolvedIssues = new ArrayList<>();
         for (Issues i : ticket) {
@@ -79,6 +87,7 @@ public class Main {
         return unsolvedIssues;
     }
 
+    //metod som låter användaren att se vilka tickets som inte är lösta.
     private void viewUnsolvedIssues() {
         ArrayList<Issues> unsolvedIssues = getUnsolvedIssues();
         for (Issues i : unsolvedIssues) {
