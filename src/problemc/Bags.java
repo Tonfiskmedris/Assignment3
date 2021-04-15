@@ -26,6 +26,8 @@ public class Bags {
     }
 
     public int bagVolume() {
-        return getLength()*getWidth()*getHeight();
+        return length*width*height;
     }
+
+
 }

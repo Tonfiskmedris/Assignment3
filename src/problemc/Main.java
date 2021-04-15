@@ -10,32 +10,38 @@ public class Main {
         Bags largeBag = new Bags(100, 200, 50);
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter the volume of your truck: ");
+        System.out.print("Enter the volume of your truck in cm3: ");
         long truckVolume = input.nextLong();
         int largeBagCount = 0;
         int mediumBagCount = 0;
         int smallBagCount = 0;
 
 
-        //lägg till så att den fortsätter att köra programmet tills att vi inte får plats med några fler påsar. Låt programmet minska volymen på vår truckVolume tills = 0 eller att inte det får plats några fler påsar och då skall den printa remaining truckVolume.
-        for (int i = 1; i <= truckVolume; i++) {
-            if (largeBag.bagVolume() < truckVolume) {
+        //problem med att den hoppar till medium bag fast den fortfarande kan fylla med largebag.
+        for (int i = 0; i <= truckVolume; i++) {
+            if (largeBag.bagVolume() <= truckVolume) {
                 largeBagCount += 1;
                 truckVolume -= largeBag.bagVolume();
-            } else if (mediumBag.bagVolume() < truckVolume) {
+            }
+        }
+        for (int j = 0; j <= truckVolume; j++) {
+            if (mediumBag.bagVolume() <= truckVolume) {
                 mediumBagCount += 1;
                 truckVolume -= mediumBag.bagVolume();
-            } else if (smallBag.bagVolume() < truckVolume) {
+            }
+        }
+        for (int k = 0; k < truckVolume; k++) {
+            if (smallBag.bagVolume() <= truckVolume) {
                 smallBagCount += 1;
                 truckVolume -= smallBag.bagVolume();
-
             }
-
         }
-        System.out.printf("Number of large bags: %d%n", largeBagCount);
-        System.out.printf("Number of medium bags: %d%n", mediumBagCount);
-        System.out.printf("Number of small bags: %d%n", smallBagCount);
-        System.out.println(truckVolume);
+
+
+        System.out.printf("Number of large bags: %d with the following dimensions %dx%dx%d (volume: %,d cm3)%n", largeBagCount, largeBag.getLength(), largeBag.getWidth(), largeBag.getHeight(), largeBag.bagVolume());
+        System.out.printf("Number of medium bags: %d with the following dimensions %dx%dx%d (volume: %,d cm3)%n", mediumBagCount, mediumBag.getLength(), mediumBag.getWidth(), mediumBag.getHeight(), mediumBag.bagVolume());
+        System.out.printf("Number of small bags: %d with the following dimensions %dx%dx%d (volume: %,d cm3)%n", smallBagCount, smallBag.getLength(), smallBag.getWidth(), smallBag.getHeight(), smallBag.bagVolume());
+        System.out.printf("Amount of empty space after loading: %d cm3%n", truckVolume);
     }
 }
 
