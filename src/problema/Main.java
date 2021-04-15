@@ -12,6 +12,5 @@ public class Main {
         double totalPrice = book1.getPrice() + book2.getPrice() + book3.getPrice();
         System.out.println("-------------------------------");
         System.out.printf("Total price: $%.2f", totalPrice);
-
     }
 }
