@@ -1,5 +1,4 @@
 package problemc;
-
 import java.util.Scanner;
 
 public class Main {
@@ -16,27 +15,26 @@ public class Main {
         int mediumBagCount = 0;
         int smallBagCount = 0;
 
-
-        //problem med att den hoppar till medium bag fast den fortfarande kan fylla med largebag.
         for (int i = 0; i <= truckVolume; i++) {
             if (largeBag.bagVolume() <= truckVolume) {
                 largeBagCount += 1;
                 truckVolume -= largeBag.bagVolume();
             }
         }
+
         for (int j = 0; j <= truckVolume; j++) {
             if (mediumBag.bagVolume() <= truckVolume) {
                 mediumBagCount += 1;
                 truckVolume -= mediumBag.bagVolume();
             }
         }
+
         for (int k = 0; k < truckVolume; k++) {
             if (smallBag.bagVolume() <= truckVolume) {
                 smallBagCount += 1;
                 truckVolume -= smallBag.bagVolume();
             }
         }
-
 
         System.out.printf("Number of large bags: %d with the following dimensions %dx%dx%d (volume: %,d cm3)%n", largeBagCount, largeBag.getLength(), largeBag.getWidth(), largeBag.getHeight(), largeBag.bagVolume());
         System.out.printf("Number of medium bags: %d with the following dimensions %dx%dx%d (volume: %,d cm3)%n", mediumBagCount, mediumBag.getLength(), mediumBag.getWidth(), mediumBag.getHeight(), mediumBag.bagVolume());
