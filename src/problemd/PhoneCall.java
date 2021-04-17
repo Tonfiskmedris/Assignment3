@@ -1,23 +1,20 @@
 package problemd;
 
 public class PhoneCall {
-    String name;
-    int number;
+    public String name;
+    public int number;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public void setPhoneCallName(String name){
         this.name = name;
     }
 
-    public int getNumber() {
-        return number;
+    public void setPhoneCallNumber(int number){
+        this.number = number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void display(){
+        System.out.println("Name of caller: " + name + ", phone number: " + number);
+        System.out.println();
     }
 }
 

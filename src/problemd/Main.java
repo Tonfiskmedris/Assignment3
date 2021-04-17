@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     Scanner input = new Scanner(System.in);
-    private String[] queueSize = new String[10];
 
     public static void main(String[] args) {
 
@@ -37,22 +36,43 @@ public class Main {
 
     private void createPhoneCall() {
         //få metoden att lägga till ett element i arrayen vid varje exekvering.
-        PhoneCall createPhoneCall = new PhoneCall();
-        System.out.println("Enter your name: ");
-        createPhoneCall.setName(input.nextLine());
-        System.out.println("Enter phone number: ");
-        createPhoneCall.setNumber(Integer.parseInt(input.nextLine()));
-        //få programmet att addera samtalet till index 0, sen index 1 etc.
-        }
+        PhoneCall[] createPhoneCall;
+        createPhoneCall = new PhoneCall[10];
+        createPhoneCall[0] = new PhoneCall();
+        createPhoneCall[1] = new PhoneCall();
+        createPhoneCall[2] = new PhoneCall();
+        createPhoneCall[3] = new PhoneCall();
+        createPhoneCall[4] = new PhoneCall();
+        createPhoneCall[5] = new PhoneCall();
+        createPhoneCall[6] = new PhoneCall();
+        createPhoneCall[7] = new PhoneCall();
+        createPhoneCall[8] = new PhoneCall();
+        createPhoneCall[9] = new PhoneCall();
 
-        //for(int i = 0; i < queuesize.lenght; i++) vi vill få programmet så att den endast kan addera 10 element till listan dvs max kö = 10 personer.
+        for (int i = 0; i<createPhoneCall.length; i++) {
+            System.out.println("Enter name of caller:");
+            createPhoneCall[i].setPhoneCallName(input.nextLine());
+            System.out.println("Enter number of caller: ");
+            createPhoneCall[i].setPhoneCallNumber(Integer.parseInt(input.nextLine()));
+        }
+        for (PhoneCall phoneCall : createPhoneCall) {
+            if (phoneCall.name != null) {
+                phoneCall.display();
+            }
+        }
+    }
+
+
+    //for(int i = 0; i < queuesize.lenght; i++) vi vill få programmet så att den endast kan addera 10 element till listan dvs max kö = 10 personer.
 
 
     private void answerPhoneCall() {
+        PhoneCall[] answerPhoneCall;
+        answerPhoneCall = new PhoneCall[10];
 
-        }
-        // ta bort från array listan och printa vem vi svarar: namn (telnr).
+        // ta bort från array listan och printa vem vi (tar bort) svarar: namn (telnr).
     }
+}
 
 
 //    Skapa ett program som håller reda på inkommande telefonsamtal och placerar dem i en kö. Varje telefonsamtal skall representeras av ett objekt som lagrar namnet på personen som ringer och dennes telefonnummer.
