@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     Scanner input = new Scanner(System.in);
+    private PhoneCall[] phoneCalls = new PhoneCall[10];
 
     public static void main(String[] args) {
 
@@ -29,15 +30,14 @@ public class Main {
         System.out.println("| 1. Add phone call       |");
         System.out.println("| 2. Answer phone call    |");
         System.out.println("| 3. Exit                 |");
-        System.out.println("| ----------------------- |");
-        System.out.println();//printa bara hur många index som är fulla dvs den ska inte printa alla 10 element om inte alla är fyllda.
+        System.out.println("| ----------------------- |");//printa bara hur många index som är fulla dvs den ska inte printa alla 10 element om inte alla är fyllda.
         System.out.println();
     }
 
     private void createPhoneCall() {
         //få metoden att lägga till ett element i arrayen vid varje exekvering.
         PhoneCall[] createPhoneCall;
-        createPhoneCall = new PhoneCall[10];
+        createPhoneCall = phoneCalls;
         createPhoneCall[0] = new PhoneCall();
         createPhoneCall[1] = new PhoneCall();
         createPhoneCall[2] = new PhoneCall();
@@ -49,12 +49,13 @@ public class Main {
         createPhoneCall[8] = new PhoneCall();
         createPhoneCall[9] = new PhoneCall();
 
-        for (int i = 0; i<createPhoneCall.length; i++) {
+        for (int i = 0; i < createPhoneCall.length; i++) {
             System.out.println("Enter name of caller:");
             createPhoneCall[i].setPhoneCallName(input.nextLine());
             System.out.println("Enter number of caller: ");
             createPhoneCall[i].setPhoneCallNumber(Integer.parseInt(input.nextLine()));
         }
+
         for (PhoneCall phoneCall : createPhoneCall) {
             if (phoneCall.name != null) {
                 phoneCall.display();
@@ -62,15 +63,20 @@ public class Main {
         }
     }
 
-
-    //for(int i = 0; i < queuesize.lenght; i++) vi vill få programmet så att den endast kan addera 10 element till listan dvs max kö = 10 personer.
-
-
     private void answerPhoneCall() {
-        PhoneCall[] answerPhoneCall;
-        answerPhoneCall = new PhoneCall[10];
 
-        // ta bort från array listan och printa vem vi (tar bort) svarar: namn (telnr).
+        //skiftar elementernas plats i listan så att den som ligger på index 0 kommer till index 9 och alla där emellan flyttas -1 index.
+        PhoneCall[] answerPhoneCall;
+        answerPhoneCall = phoneCalls;
+        PhoneCall temp = answerPhoneCall[0];
+        for (int i = 0; i < answerPhoneCall.length - 1; i++) {
+            answerPhoneCall[i] = answerPhoneCall[i + 1];
+        }
+        answerPhoneCall[answerPhoneCall.length - 1] = temp;
+
+        for (PhoneCall phoneCall : answerPhoneCall) {
+            phoneCall.display();
+        }
     }
 }
 
