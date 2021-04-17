@@ -1,6 +1,5 @@
 package problemd;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -32,6 +31,7 @@ public class Main {
         System.out.println("| 2. Answer phone call    |");
         System.out.println("| 3. Exit                 |");
         System.out.println("| ----------------------- |");
+        System.out.println();//printa bara hur många index som är fulla dvs den ska inte printa alla 10 element om inte alla är fyllda.
         System.out.println();
     }
 
@@ -42,14 +42,18 @@ public class Main {
         createPhoneCall.setName(input.nextLine());
         System.out.println("Enter phone number: ");
         createPhoneCall.setNumber(Integer.parseInt(input.nextLine()));
+        //få programmet att addera samtalet till index 0, sen index 1 etc.
+        }
 
         //for(int i = 0; i < queuesize.lenght; i++) vi vill få programmet så att den endast kan addera 10 element till listan dvs max kö = 10 personer.
-    }
+
 
     private void answerPhoneCall() {
+
+        }
         // ta bort från array listan och printa vem vi svarar: namn (telnr).
     }
-}
+
 
 //    Skapa ett program som håller reda på inkommande telefonsamtal och placerar dem i en kö. Varje telefonsamtal skall representeras av ett objekt som lagrar namnet på personen som ringer och dennes telefonnummer.
 //    När man svarar på ett telefonsamtal skall det tas bort från kön. Man svarar alltid på det samtal som finns på index 0. Alla andra samtal i kön skall ”flyttas fram” ett steg så att det samtal som tidigare hade index 1 skall nu få index 0 ock så vidare.
