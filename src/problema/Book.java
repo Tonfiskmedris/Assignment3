@@ -1,5 +1,6 @@
 package problema;
 
+//Klass för att skapa våra böcker
 public class Book {
     String name;
     String isbn;

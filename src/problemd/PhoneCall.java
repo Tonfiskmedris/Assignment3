@@ -1,20 +1,25 @@
 package problemd;
 
+//Klass för att skapa våra callers.
 public class PhoneCall {
-    public String name;
-    public int number;
+   private String name;
+   private String number;
 
     public void setPhoneCallName(String name){
         this.name = name;
     }
 
-    public void setPhoneCallNumber(int number){
+    public void setPhoneCallNumber(String number){
         this.number = number;
     }
 
-    public void display(){
-        System.out.println("Name of caller: " + name + ", phone number: " + number);
-        System.out.println();
+    public String getPhoneCallName() {
+        return name;
     }
+
+    public String getPhoneCallNumber() {
+        return number;
+    }
+
 }
 

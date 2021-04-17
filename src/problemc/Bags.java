@@ -1,5 +1,6 @@
 package problemc;
 
+//klass för att skapa våra bags
 public class Bags {
 
     int width;

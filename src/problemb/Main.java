@@ -50,7 +50,6 @@ public class Main {
         newLabel = input.nextLine();
         issue1.setLabel(newLabel);
         ticket.add(issue1);
-
     }
 
     //skapar en metod som låter användaren se vilka tickets som ej är lösta och välja vilken hen vill lösa. Vald tickets boolean sätts sedan till true vilket gör att vi kan få programmet att se denna ticket som solved.
